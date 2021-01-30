@@ -15,6 +15,7 @@ import {MatGridListModule} from '@angular/material/grid-list';
 import { LoginComponent } from './login/login.component';
 import { Routes } from '@angular/router';
 import {ReactiveFormsModule} from '@angular/forms';
+import { AcceptFormComponent } from './accept-form/accept-form.component';
 
 
 
@@ -22,8 +23,9 @@ import {ReactiveFormsModule} from '@angular/forms';
   declarations: [
     AppComponent,
     HomeComponent,
-    LoginComponent
-    ],
+    LoginComponent,
+    AcceptFormComponent
+  ],
   imports: [
     BrowserModule,
     AppRoutingModule,

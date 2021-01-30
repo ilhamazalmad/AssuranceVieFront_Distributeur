@@ -1,16 +1,16 @@
 import { Component } from '@angular/core';
 import {ActivatedRoute,Router} from '@angular/router';
 import {ConnectionService} from './services/connection.service';
-import { ClientDto } from './model/client-dto';
+import { DistributeurDto } from './model/distributeur-dto';
 
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
-  styleUrls: ['./app.component.css']
+  styleUrls: ['./app.component.scss']
 })
 export class AppComponent{
   title='Assurance de vie';
-  client  = new ClientDto;
+  distributeur  = new DistributeurDto;
 
   constructor(private _router : Router,
     private _activatedRoute:ActivatedRoute,
@@ -18,7 +18,7 @@ export class AppComponent{
   
     ngOnInit(): void {
       if(localStorage.getItem("session") == null)
-      {
+      { 
         localStorage.setItem("session","false");
         (document.getElementById('login') as HTMLElement).textContent="Connexion";
         (document.getElementById('profil') as HTMLElement).hidden=true;
@@ -33,14 +33,14 @@ export class AppComponent{
       else if(localStorage.getItem("session") == "true"){
         (document.getElementById('login') as HTMLElement).textContent="Deconnexion";
         (document.getElementById('profil') as HTMLElement).hidden=false;
-        const id = localStorage.getItem("client");
+        const id = localStorage.getItem("distributeur");
         if(id != null){
           this._service.findById(id).subscribe(
             data => {
-              this.client=data;
-              if(this.client != null && this.client.id != null )
+              this.distributeur=data;
+              if(this.distributeur != null && this.distributeur.id != null )
               {
-                (document.getElementById('profil') as HTMLElement).textContent=this.client.nom+"_"+ this.client.prenom;
+                (document.getElementById('profil') as HTMLElement).textContent=this.distributeur.libelle;
                 this._router.navigate(['/'])
               }
               else
@@ -54,7 +54,7 @@ export class AppComponent{
     }
 
     profil(){
-      this._router.navigate(['Profile'])
+      this._router.navigate(['/'])
     }
     connexion(){
         localStorage.setItem("session","false");
