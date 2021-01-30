@@ -31,8 +31,8 @@ export class HomeComponent implements OnInit {
     }
   }
 
-  chercher(){
-    if(this.cin == "" && this.etat == ""  ){
+  chercher(val:any){
+    if(this.cin == "" && this.etat == "" ){
       this.ngOnInit()
     }
     else {
@@ -43,12 +43,19 @@ export class HomeComponent implements OnInit {
           }
         )
       }
+      else if(val == 1){
+        this.ngOnInit()
+        this.chercher(0)
+      }
       if (this.etat != ""){
         this.iAVPFs=this.iAVPFs.filter(
           res=>{
             return res.etatInscription.libelle.toLocaleLowerCase().match(this.etat.toLocaleLowerCase());
           }
         )
+      }else if(val == 2){
+        this.ngOnInit()
+        this.chercher(0)
       }
     }
   }
