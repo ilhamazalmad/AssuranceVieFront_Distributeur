@@ -22,7 +22,6 @@ export class LoginComponent implements OnInit {
           this.distributeur=data
           if(this.distributeur != null && this.distributeur.id != null )
           {
-            alert("Connexion réussite :"+ this.distributeur.libelle)
             localStorage.setItem("session","true");
             localStorage.setItem("distributeur",this.distributeur.id);
             (document.getElementById('login') as HTMLElement).textContent="Deconnexion";

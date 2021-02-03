@@ -70,4 +70,12 @@ export class HomeComponent implements OnInit {
       document.location.href = "http://localhost:8090/assurance-api/IAVPF/report/IDP/"+id;
   }
 
+  add(id :string){
+    const dist = localStorage.getItem("distributeur");
+        if(dist != null){
+          this._service.affilier(id,dist).subscribe()
+          window.location.reload();
+        }
+  }
+
 }

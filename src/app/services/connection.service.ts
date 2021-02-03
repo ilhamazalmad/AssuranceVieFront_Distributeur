@@ -29,5 +29,8 @@ export class ConnectionService {
   public generateReport(id :String):Observable<any>{
     return this._http.get("http://localhost:8090/assurance-api/IAVPF/report/IDP/"+id);
   }
+  public affilier(id :String,dest:String):Observable<any>{
+    return this._http.put("http://localhost:8090/assurance-api/IAVPF/affilier/"+id+"/"+dest,null);
+  }
 
 }

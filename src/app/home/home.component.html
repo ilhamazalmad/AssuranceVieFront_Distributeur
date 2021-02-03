@@ -31,12 +31,16 @@
                 <td>{{iAVPF.formule.libelle}}</td>
                 <td>{{iAVPF.etatInscription.libelle}}</td>
                 <td>
-                    <button mat-raised-button color="primary" type="button" class="btn btn-primary" (click)="detail(iAVPF.id)" >
-                        Plus de détail
+                <div >
+                    <button mat-raised-button color="primary"  id ="button" type="button" class="btn btn-primary" (click)="add(iAVPF.id)" >
+                        Accepter l'inscription
                     </button>
+                </div>
+                <div >
                     <button mat-raised-button color="primary" type="button" class="btn btn-primary" (click)="report(iAVPF.id)">
                         Télécharger l'acte d'engagement 
                     </button>
+                </div>
                 </td>
             </tr>
         </tbody>
